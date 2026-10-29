@@ -1,0 +1,248 @@
+/* CAMPUSRATE: brown and red palette
+   espresso  #2b1810  (darkest brown: nav, footer)
+   chocolate #4a2c1d  (headings on cards)
+   caramel   #b9814f  (accents)
+   tan       #d9a77a  (soft highlights)
+   cream     #f6ebdd  (page background)
+   burgundy  #6e1f1a  (deep red)
+   brick     #9b2c20  (main red)
+   chili     #c0392b  (bright red for buttons)
+*/
+
+/* ---------- Whole page ---------- */
+html{
+    scroll-behavior: smooth;
+    scroll-padding-top: 70px;
+}
+body{
+    margin: 0;
+    font-family: 'Karla', Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    background-color: #f6ebdd;
+    color: #2b1810;
+}
+h1, h2, h3{
+    font-family: 'Fraunces', Georgia, serif;
+    margin: 0;
+}
+
+/* ---------- Navigation bar ---------- */
+nav{
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: #2b1810;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+.logo{
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 26px;
+    font-weight: bold;
+    color: #f6ebdd;
+    text-decoration: none;
+}
+.logo span{
+    color: #e0674f;
+}
+.links{
+    display: flex;
+    gap: 10px;
+}
+.links a{
+    color: #f6ebdd;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+.links a:hover{
+    background-color: #9b2c20;
+    color: white;
+}
+
+/* ---------- Hero (the big top section) ---------- */
+.hero{
+    position: relative;   /* lets the slides sit inside the hero */
+    overflow: hidden;     /* hides any part of a photo that sticks out */
+    background: linear-gradient(135deg, #2b1810, #6e1f1a);
+    color: #f6ebdd;
+    text-align: center;
+    padding: 110px 40px;
+}
+
+/* ---------- Hero slideshow ---------- */
+/* Every slide is a photo that covers the whole hero, and starts invisible */
+.slide{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    animation: fade 30s infinite;   /* 5 photos x 6 seconds = 30 seconds */
+}
+/* Each id gives one slide its own photo and its own start time */
+#slide1{ background-image: url(avo.jpg);               animation-delay: 0s; }
+#slide2{ background-image: url(lu.jpg);                animation-delay: 6s; }
+#slide3{ background-image: url(matookeandchicken.jpg); animation-delay: 12s; }
+#slide4{ background-image: url(rice.jpg);              animation-delay: 18s; }
+#slide5{ background-image: url(rolex.jpg);             animation-delay: 24s; }
+
+/* The fade: invisible, then visible, then invisible again */
+@keyframes fade{
+    0%   { opacity: 0; }
+    4%   { opacity: 1; }
+    20%  { opacity: 1; }
+    24%  { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+/* A dark brown layer over the photos so the white text is easy to read */
+.overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(43, 24, 16, 0.65);
+}
+
+/* Keeps the text on top of the slides and the overlay */
+.hero-text{
+    position: relative;
+}
+.hero h1{
+    font-size: 58px;
+    line-height: 1.15;
+}
+.hero h1 span{
+    color: #e0674f;
+}
+.hero p{
+    max-width: 640px;
+    margin: 22px auto 32px auto;
+    color: #ecd9c3;
+}
+
+/* ---------- Buttons ---------- */
+.btn{
+    display: inline-block;
+    padding: 12px 28px;
+    margin: 6px;
+    border-radius: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+}
+.btn-red{
+    background-color: #c0392b;
+    color: white;
+}
+.btn-red:hover{
+    background-color: #e0674f;
+    transform: translateY(-3px);
+}
+.btn-outline{
+    border: 2px solid #d9a77a;
+    color: #f6ebdd;
+}
+.btn-outline:hover{
+    background-color: #d9a77a;
+    color: #2b1810;
+}
+
+/* ---------- Sections and cards ---------- */
+.section{
+    padding: 70px 40px;
+    text-align: center;
+}
+.section h2{
+    font-size: 36px;
+    color: #6e1f1a;
+    margin-bottom: 10px;
+}
+.intro{
+    max-width: 600px;
+    margin: 0 auto;
+    color: #4a2c1d;
+}
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 40px;
+}
+.card{
+    width: 230px;
+    padding: 28px 22px;
+    text-align: left;
+    background-color: white;
+    border-top: 5px solid #9b2c20;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(74, 44, 29, 0.15);
+    transition: 0.3s;
+}
+.card:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(74, 44, 29, 0.3);
+}
+.card h3{
+    font-size: 21px;
+    color: #4a2c1d;
+    margin-bottom: 8px;
+}
+.card p{
+    margin: 0;
+    font-size: 16px;
+}
+.number{
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 42px;
+    font-weight: bold;
+    color: #b9814f;
+}
+
+/* A slightly darker band to separate the two sections */
+.band{
+    background-color: #ecd9c3;
+}
+
+/* ---------- Call to action ---------- */
+.cta{
+    padding: 70px 40px;
+    text-align: center;
+    background-color: #d9a77a;
+}
+.cta h2{
+    font-size: 34px;
+    color: #2b1810;
+    margin-bottom: 20px;
+}
+
+/* ---------- Footer ---------- */
+footer{
+    padding: 30px;
+    text-align: center;
+    font-size: 15px;
+    background-color: #2b1810;
+    color: #d9a77a;
+}
+
+/* ---------- Small screens (phones) ---------- */
+@media (max-width: 600px){
+    nav{
+        flex-direction: column;
+        gap: 10px;
+    }
+    .hero h1{
+        font-size: 38px;
+    }
+}
