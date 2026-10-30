@@ -21,10 +21,10 @@
             border-top: 5px solid #9b2c20;
             border-radius: 14px;
             box-shadow: 0 4px 12px rgba(74, 44, 29, 0.15);
-            transition: box-shadow 0.3s, border-color 0.3s, background-color 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s, background-color 0.3s;
         }
         .canteen-card:hover {
-            animation: shake 0.4s ease-in-out;
+            transform: translateY(-8px);
             box-shadow: 0 12px 24px rgba(74, 44, 29, 0.3);
         }
         .canteen-card h5 {
@@ -36,14 +36,7 @@
         .canteen-card p { margin: 6px 0 0 0; font-size: 16px; }
         .canteen-card .muted { color: #8a6a55; }
         .canteen-card.selected { border-color: #c0392b; background-color: #f3e0cc; }
-        @keyframes shake {
-            0%   { transform: translateX(0) rotate(0); }
-            20%  { transform: translateX(-4px) rotate(-1deg); }
-            40%  { transform: translateX(4px) rotate(1deg); }
-            60%  { transform: translateX(-4px) rotate(-1deg); }
-            80%  { transform: translateX(4px) rotate(1deg); }
-            100% { transform: translateX(0) rotate(0); }
-        }
+        
         .avg-stars {
             position: relative;
             display: inline-block;
