@@ -8,6 +8,65 @@
     <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
     rel="stylesheet">
+
+    <style>
+        .canteen-section h2 { font-size: 36px; color: #6e1f1a; margin-bottom: 6px; }
+        .canteen-section > p { color: #4a2c1d; }
+        .canteen-card {
+            cursor: pointer;
+            height: 100%;
+            padding: 22px;
+            background-color: white;
+            border: 2px solid transparent;
+            border-top: 5px solid #9b2c20;
+            border-radius: 14px;
+            box-shadow: 0 4px 12px rgba(74, 44, 29, 0.15);
+            transition: box-shadow 0.3s, border-color 0.3s, background-color 0.3s;
+        }
+        .canteen-card:hover {
+            animation: shake 0.4s ease-in-out;
+            box-shadow: 0 12px 24px rgba(74, 44, 29, 0.3);
+        }
+        .canteen-card h5 {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 21px;
+            color: #4a2c1d;
+            margin-bottom: 8px;
+        }
+        .canteen-card p { margin: 6px 0 0 0; font-size: 16px; }
+        .canteen-card .muted { color: #8a6a55; }
+        .canteen-card.selected { border-color: #c0392b; background-color: #f3e0cc; }
+        @keyframes shake {
+            0%   { transform: translateX(0) rotate(0); }
+            20%  { transform: translateX(-4px) rotate(-1deg); }
+            40%  { transform: translateX(4px) rotate(1deg); }
+            60%  { transform: translateX(-4px) rotate(-1deg); }
+            80%  { transform: translateX(4px) rotate(1deg); }
+            100% { transform: translateX(0) rotate(0); }
+        }
+        .avg-stars {
+            position: relative;
+            display: inline-block;
+            font-size: 1.5rem;
+            line-height: 1;
+            color: #c9c9c9;
+        }
+        .avg-stars-fill {
+            position: absolute;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            white-space: nowrap;
+            color: #f1c40f;
+        }
+        .rating-test-button:disabled {
+            background-color: #d9c3ad;
+            border-color: #d9c3ad;
+            color: #8a6a55;
+            cursor: not-allowed;
+        }
+        .rating-test-button:disabled:hover { transform: none; }
+    </style>
 </head>
 <body>
     <nav id="navigation">
@@ -19,14 +78,19 @@
     </div>
   </nav> 
   
-<!-- Faith and Sidney's SECTION: Add the page introduction and
-     five restaurant cards here. -->
+<div class="container my-4 canteen-section">
+    <h2>Canteen Ratings</h2>
+    <div class="row g-3" id="canteenList"></div>
+</div>
+
      <!-- Note: This button will come at the bottom and will be used to rate once the user has chosen a restaurant. -->
 <div class="container my-4">
     <button type="button"
+            id="rateUsBtn"
             class="rating-test-button"
             data-bs-toggle="modal"
-            data-bs-target="#ratingModal">
+            data-bs-target="#ratingModal"
+            disabled>
         Rate Us
     </button>
 </div>
@@ -264,6 +328,51 @@
 
 </script>
 
+<script>
+    // Canteens start with no ratings. When real ratings exist,
+    // fill in average (out of 5) and count for each canteen.
+    const canteens = [
+      { name: "UCU Main Canteen",       average: null, count: 0 },
+      { name: "Guild Canteen",          average: null, count: 0 },
+      { name: "Joy Canteen",            average: null, count: 0 },
+      { name: "Ebenezer Canteen",       average: null, count: 0 },
+      { name: "Delight Canteen",        average: null, count: 0 },
+      { name: "Touch of Class Canteen", average: null, count: 0 }
+    ];
+
+    const canteenList = document.getElementById("canteenList");
+    const rateUsBtn = document.getElementById("rateUsBtn");
+    let selectedCanteen = null;
+
+    canteens.forEach(function (c) {
+      const hasRatings = c.count > 0 && c.average !== null;
+      const percent = hasRatings ? (c.average / 5) * 100 : 0; // 1 star = 20%
+      const summary = hasRatings
+        ? '<strong>' + c.average.toFixed(1) + '</strong> / 5 <span class="muted">(' + c.count + ' ratings)</span>'
+        : '<span class="muted">No ratings yet</span>';
+
+      const col = document.createElement("div");
+      col.className = "col-12 col-md-6 col-lg-4";
+      col.innerHTML =
+        '<div class="canteen-card" data-canteen="' + c.name + '">' +
+          '<h5>' + c.name + '</h5>' +
+          '<div class="avg-stars">★★★★★<span class="avg-stars-fill" style="width:' + percent + '%">★★★★★</span></div>' +
+          '<p>' + summary + '</p>' +
+        '</div>';
+      canteenList.appendChild(col);
+    });
+
+    const canteenCards = document.querySelectorAll(".canteen-card");
+    canteenCards.forEach(function (card) {
+      card.addEventListener("click", function () {
+        canteenCards.forEach(function (x) { x.classList.remove("selected"); });
+        card.classList.add("selected");
+        selectedCanteen = card.dataset.canteen;
+        rateUsBtn.disabled = false;
+        document.getElementById("ratingModalLabel").textContent = "Rate " + selectedCanteen;
+      });
+    });
+</script>
 
 <!-- Bootstrap JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
