@@ -229,7 +229,9 @@ nav{
     background-color: #d9a77a;
 }
 .chef{
-    width: 200px;
+    width: 200px;        /* the picture is 200px wide */
+    max-width: 100%;     /* and never wider than the screen */
+    height: auto;        /* the height adjusts by itself, so it is not squashed */
 }
 .cta-text{
     text-align: left;
