@@ -59,6 +59,73 @@
             cursor: not-allowed;
         }
         .rating-test-button:disabled:hover { transform: none; }
+        /* Page background (Bootstrap was overriding the stylesheet) */
+body { background-color: #f6ebdd; }
+
+/* Rating pop-up window */
+#ratingModal .modal-content {
+  background-color: #f6ebdd;
+  border: none;
+  border-top: 6px solid #9b2c20;
+  border-radius: 14px;
+  box-shadow: 0 12px 24px rgba(74, 44, 29, 0.4);
+}
+
+#ratingModal .modal-header {
+  background-color: #2b1810;
+  border-bottom: 3px solid #b9814f;
+}
+
+#ratingModal .modal-title {
+  font-family: 'Fraunces', Georgia, serif;
+  color: #f6ebdd;
+}
+
+#ratingModal .btn-close { filter: invert(1); }
+
+#ratingModal .modal-body { color: #4a2c1d; }
+
+#ratingModal .form-control { border: 2px solid #d9a77a; }
+
+#ratingModal .form-control:focus {
+  border-color: #c0392b;
+  box-shadow: 0 0 0 0.2rem rgba(192, 57, 43, 0.25);
+}
+
+/* Buttons inside the pop-up */
+.rating-continue-button {
+  background-color: #c0392b;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 10px 24px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.rating-continue-button:hover { background-color: #9b2c20; }
+
+.rating-continue-button:disabled {
+  background-color: #d9c3ad;
+  color: #8a6a55;
+  cursor: not-allowed;
+}
+
+/* Stars: grey until clicked, then yellow */
+.star {
+  background: none;
+  border: none;
+  padding: 0 2px;
+  font-size: 2rem;
+  line-height: 1;
+  color: #c9c9c9;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.star:hover { transform: scale(1.2); }
+
+.star.selected { color: #f1c40f; }
     </style>
 </head>
 <body>
