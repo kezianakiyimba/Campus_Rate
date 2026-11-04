@@ -140,7 +140,17 @@
             valid: "Every Friday, 12:00 pm - 2:00 pm",
             terms: "While supplies last. Cannot be combined with other offers.",
             image: "TouchofClass1.jpeg"
-        }
+        },
+        {
+            canteen: "Guild",
+            title: "Breakfast Special",
+            short: "Fresh Rolex",
+            offer: "UGX 5,000 ",
+            details: "You might not afford to wearit , but you can ",
+            valid: "Every Monday, Wednesday and Friday, 6:30 am - 8:00 am",
+            terms: "While supplies last. Cannot be combined with other offers.",
+            image: "Guild2.jpeg"
+        },
         {
             canteen: "Touch of Class",
             title: "Lunch Special",
@@ -150,7 +160,7 @@
             valid: "Every Friday, 12:00 pm - 2:00 pm",
             terms: "While supplies last. Cannot be combined with other offers.",
             image: "TouchofClass1.jpeg"
-        }
+        },
         {
             canteen: "Touch of Class",
             title: "Lunch Special",
@@ -160,7 +170,7 @@
             valid: "Every Friday, 12:00 pm - 2:00 pm",
             terms: "While supplies last. Cannot be combined with other offers.",
             image: "TouchofClass1.jpeg"
-        }
+        },
         {
             canteen: "Touch of Class",
             title: "Lunch Special",
@@ -170,7 +180,7 @@
             valid: "Every Friday, 12:00 pm - 2:00 pm",
             terms: "While supplies last. Cannot be combined with other offers.",
             image: "TouchofClass1.jpeg"
-        }
+        },
         {
             canteen: "Touch of Class",
             title: "Lunch Special",
@@ -180,7 +190,7 @@
             valid: "Every Friday, 12:00 pm - 2:00 pm",
             terms: "While supplies last. Cannot be combined with other offers.",
             image: "TouchofClass1.jpeg"
-        }
+        },
         {
             canteen: "Touch of Class",
             title: "Lunch Special",
@@ -190,7 +200,7 @@
             valid: "Every Friday, 12:00 pm - 2:00 pm",
             terms: "While supplies last. Cannot be combined with other offers.",
             image: "TouchofClass1.jpeg"
-        }
+        },
         {
             canteen: "Touch of Class",
             title: "Lunch Special",
@@ -200,7 +210,7 @@
             valid: "Every Friday, 12:00 pm - 2:00 pm",
             terms: "While supplies last. Cannot be combined with other offers.",
             image: "TouchofClass1.jpeg"
-        }
+        },
         {
             canteen: "Touch of Class",
             title: "Lunch Special",
@@ -210,17 +220,7 @@
             valid: "Every Friday, 12:00 pm - 2:00 pm",
             terms: "While supplies last. Cannot be combined with other offers.",
             image: "TouchofClass1.jpeg"
-        }
-        {
-            canteen: "Touch of Class",
-            title: "Lunch Special",
-            short: "Burger and Fries COMBO",
-            offer: "UGX 15,000 combo",
-            details: "Grab yourself a burger and fries with your choice of soda or juice. It's been a long week, YOU DESERVE IT!!",
-            valid: "Every Friday, 12:00 pm - 2:00 pm",
-            terms: "While supplies last. Cannot be combined with other offers.",
-            image: "TouchofClass1.jpeg"
-        }
+        },
         {
             canteen: "Touch of Class",
             title: "Lunch Special",
@@ -232,7 +232,86 @@
             image: "TouchofClass1.jpeg"
         }
     ];
-    const Placeholder =
+  const PLACEHOLDER = "data:image/svg+xml;utf8," + encodeURIComponent(
+    '<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500">' +
+    '<rect width="100%" height="100%" fill="#9b2c20"/>' +
+    '<text x="50%" y="50%" fill="#f3e0cc" font-size="32" font-family="Georgia" ' +
+    'text-anchor="middle" dominant-baseline="middle">Add promotion image</text></svg>'
+);  
+const ON_ERROR = "this.onerror=null;this.src=PLACEHOLDER;";
+
+const carouselSlides = document.getElementById("carouselSlides");
+
+promotions.forEach((promo, index) => {
+    const slide = document.createElement("div");
+    slide.className = "carousel-item" + (index === 0 ? " active" : "");
+    slide.innerHTML = `
+        <img src="${promo.image}" class="d-block w-100" alt="${promo.title}" onerror="${ON_ERROR}">
+        <div class="carousel-caption">
+            <span class="promo-canteen-badge">${promo.canteen}</span>
+            <h2>${promo.title}</h2>
+            <p>${promo.short}</p>
+            <a href="#" class="promo-details-btn" data-bs-toggle="modal" data-bs-target="#promoModal${index}">View Details</a>
+        </div>
+    `;
+    carouselSlides.appendChild(slide);
+});
+const carouselEl = document.getElementById("promoCarousel");
+new bootstrap.Carousel(carouselEl, { interval: 5000, ride: "carousel" });
+                      <!--IMAGE BUTTONS-->>
+
+const thumbList = document.getElementById("thumbList");
+promotions.forEach(function (promo, index) {
+    const col = document.createElement("div");
+    col.className = "col-6 col-md-4 col-lg-3";
+    col.innerHTML =
+        '<button type="button" class="promo-thumb' + (index === 0 ? ' active' : '') +
+        '" data-index="' + index + '" aria-label="View details: ' + promo.title + '">' +
+            '<img src="' + promo.image + '" alt="" onerror="' + ON_ERROR + '">' +
+            '<div class="thumb-text">' +
+                '<div class="thumb-canteen">' + promo.canteen + '</div>' +
+                '<div class="thumb-title">' + promo.title + '</div>' +
+            '</div>' +
+        '</button>';
+    thumbList.appendChild(col);
+     });
+function highlightThumb(activeIndex) {
+    document.querySelectorAll(".promo-thumb").forEach(function (btn) {
+        btn.classList.toggle("active", Number(btn.dataset.index) === activeIndex);
+    });
+}
+
+carouselEl.addEventListener("slide.bs.carousel", function (event) {
+    highlightThumb(event.to);   // event.to = the slide about to appear
+});
+
+const promoModal = document.getElementById("promoModal");
+
+promoModal.addEventListener("show.bs.modal", function(event) {
+
+    const button = event.relatedTarget;
+
+    const index = Number(button.dataset.promoIndex);
+
+    const promo = promotions[index];
+
+    document.getElementById("promoModalImg").src = promo.image;
+
+    document.getElementById("promoModalTitle").textContent = promo.title;
+
+    document.getElementById("promoModalCanteen").textContent = promo.canteen;
+
+    document.getElementById("promoModalOffer").textContent = promo.offer;
+
+    document.getElementById("promoModalDetails").textContent = promo.details;
+
+    document.getElementById("promoModalValid").textContent = promo.valid;
+
+    document.getElementById("promoModalTerms").textContent = promo.terms;
+
+});
+
+</script>
 </div>
 <footer>Campus Rate &middot; Light and The Salt project</footer>
 </body>
