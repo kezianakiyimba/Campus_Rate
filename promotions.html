@@ -312,7 +312,32 @@ promoModal.addEventListener("show.bs.modal", function(event) {
 });
 
 </script>
+<div class="modal fade" id="promoModal" tabindex="-1"
+     aria-labelledby="promoModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <img id="promoModalImg" class="promo-modal-img" src="" alt="">
+            <div class="modal-header">
+                <h5 class="modal-title" id="promoModalTitle"></h5>
+                <button type="button" class="btn-close"
+                        data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p class="promo-meta mb-2" id="promoModalCanteen"></p>
+                <p><span class="promo-offer-tag" id="promoModalOffer"></span></p>
+                <p id="promoModalDetails"></p>
+                <p class="promo-meta mb-1"><strong>Valid:</strong> <span id="promoModalValid"></span></p>
+                <p class="promo-meta mb-0"><strong>Terms:</strong> <span id="promoModalTerms"></span></p>
+            </div>
+            <div class="modal-footer">
+                <a href="ratings.html" class="rating-continue-button text-decoration-none">
+                    Rate this canteen
+                </a>
+            </div>
+        </div>
+    </div>
 </div>
+
 <footer>Campus Rate &middot; Light and The Salt project</footer>
 </body>
 </html>
