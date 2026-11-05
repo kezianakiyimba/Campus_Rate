@@ -92,11 +92,11 @@ nav{
     animation: fade 30s infinite;   /* 5 photos x 6 seconds = 30 seconds */
 }
 /* Each id gives one slide its own photo and its own start time */
-#slide1{ background-image: url(avo.jpg);               animation-delay: 0s; }
-#slide2{ background-image: url(lu.jpg);                animation-delay: 6s; }
-#slide3{ background-image: url(matookeandchicken.jpg); animation-delay: 12s; }
-#slide4{ background-image: url(rice.jpg);              animation-delay: 18s; }
-#slide5{ background-image: url(rolex.jpg);             animation-delay: 24s; }
+#slide1{ background-image: url(corn/avo.jpg);               animation-delay: 0s; }
+#slide2{ background-image: url(corn/lu.jpg);                animation-delay: 6s; }
+#slide3{ background-image: url(corn/matookeandchicken.jpg); animation-delay: 12s; }
+#slide4{ background-image: url(corn/rice.jpg);              animation-delay: 18s; }
+#slide5{ background-image: url(corn/rolex.jpg);             animation-delay: 24s; }
 
 /* The fade: invisible, then visible, then invisible again */
 @keyframes fade{
