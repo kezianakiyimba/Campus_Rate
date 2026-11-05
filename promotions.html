@@ -10,7 +10,12 @@
     <link rel="stylesheet" href="stylesheet.css">
      <style>
         /* Hero slideshow styletag */
-        .promo-hero { position: relative; background: #4a2c1d; }
+        .promo-hero {
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+            background: #4a2c1d;
+        }
         .promo-hero .carousel-item { height: 70vh; min-height: 420px; }
         .promo-hero .carousel-item img {
             width: 100%;
@@ -80,7 +85,7 @@
             box-shadow: 0 12px 24px rgba(74, 44, 29, 0.3);
         }
         .promo-thumb.active { border-color: #c0392b; }
-        .promo-thumb img { width: 100%; height: 120px; object-fit: cover; display: block; }
+        .promo-thumb img { width: 100%; height: 160px; object-fit: contain; display: block; }
         .promo-thumb .thumb-text { padding: 10px 12px; }
         .promo-thumb .thumb-canteen { font-size: 13px; color: #8a6a55; }
         .promo-thumb .thumb-title { font-size: 15px; font-weight: 600; color: #4a2c1d; }
