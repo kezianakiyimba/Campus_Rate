@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;800&family=Karla:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="stylesheet.css">
+    <!-- Builds the navigation bar and footer on every page -->
+    <script src="nav_n_footer.js" defer></script>
+    <!-- Bootstrap CSS -->
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet">
+
+    <!-- Styles for the team cards only (kept here so we don't touch stylesheet.css) -->
+    <style>
+        .team-card {
+            height: 100%;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background: #fff;
+        }
+
+        .team-photo {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;          /* crops the photo to a neat square */
+            border-radius: 50%;         /* makes it a circle */
+            background: #e9e9e9;        /* grey shows if a photo is missing */
+            margin-bottom: 12px;
+        }
+
+        .team-role {
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .team-card p {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation bar: nav_n_footer.js fills this in -->
+    <div id="site-nav"></div>
+
+    <!-- Page heading -->
+    <div class="container my-4">
+        <h2>Meet the Team</h2>
+        <p>
+            Campus Rate is a website where UCU students can rate the canteens
+            on campus. We are six students who built it together.
+        </p>
+    </div>
+
+    <!-- Team cards: 1 per row on phones, 2 on tablets, 3 on large screens -->
+    <div class="container my-4">
+        <div class="row g-3">
+
+            <!-- Member 1 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="team-card">
+                    <img class="team-photo" src="images/member1.jpg" alt="Photo of Faith Deborah Mikisa">
+                    <h5>Mikisa Faith Deborah</h5>
+                    <p class="team-role">Ratings page</p>
+                    <p>BSc Data Science and Analytics student at UCU. Add one or two sentences about yourself here.</p>
+                </div>
+            </div>
+
+            <!-- Member 2 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="team-card">
+                    <img class="team-photo" src="images/member2.jpg" alt="Photo of Posha">
+                    <h5>Posha</h5>
+                    <p class="team-role">Ratings page</p>
+                    <p>Course and a sentence about yourself.</p>
+                </div>
+            </div>
+
+            <!-- Member 3 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="team-card">
+                    <img class="team-photo" src="images/member3.jpg" alt="Photo of Member 3">
+                    <h5>Member 3 name</h5>
+                    <p class="team-role">Role, e.g. Landing page</p>
+                    <p>Course and a sentence about yourself.</p>
+                </div>
+            </div>
+
+            <!-- Member 4 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="team-card">
+                    <img class="team-photo" src="images/member4.jpg" alt="Photo of Member 4">
+                    <h5>Member 4 name</h5>
+                    <p class="team-role">Role, e.g. Landing page</p>
+                    <p>Course and a sentence about yourself.</p>
+                </div>
+            </div>
+
+            <!-- Member 5 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="team-card">
+                    <img class="team-photo" src="images/member5.jpg" alt="Photo of Member 5">
+                    <h5>Member 5 name</h5>
+                    <p class="team-role">Role, e.g. Promotions page</p>
+                    <p>Course and a sentence about yourself.</p>
+                </div>
+            </div>
+
+            <!-- Member 6 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="team-card">
+                    <img class="team-photo" src="images/member6.jpg" alt="Photo of Member 6">
+                    <h5>Member 6 name</h5>
+                    <p class="team-role">Role, e.g. Promotions page</p>
+                    <p>Course and a sentence about yourself.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer: nav_n_footer.js fills this in -->
+    <div id="site-footer"></div>
+
+</body>
+</html>
