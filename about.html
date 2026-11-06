@@ -12,13 +12,28 @@
     <link rel="stylesheet" href="stylesheet.css">
 
     <style>
+        .team-section h2 { font-size: 36px; color: #6e1f1a; margin-bottom: 6px; }
+        .team-section > p { color: #4a2c1d; }
+
         .team-card {
             height: 100%;
-            padding: 20px;
+            padding: 22px;
             text-align: center;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            background: #fff;
+            background-color: white;
+            border-top: 5px solid #9b2c20;
+            border-radius: 14px;
+            box-shadow: 0 4px 12px rgba(74, 44, 29, 0.15);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .team-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(74, 44, 29, 0.3);
+        }
+        .team-card h5 {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 21px;
+            color: #4a2c1d;
+            margin-bottom: 4px;
         }
 
         .team-photo {
@@ -32,6 +47,7 @@
 
         .team-role {
             font-weight: 600;
+            color: #9b2c20;
             margin-bottom: 8px;
         }
 
@@ -45,7 +61,7 @@
     <div id="site-nav"></div>
 
     <!-- Page heading -->
-    <div class="container my-4">
+    <div class="container my-4 team-section">
         <h2>Meet the Team</h2>
         <p>
             Campus Rate is a website where UCU students can rate the canteens
