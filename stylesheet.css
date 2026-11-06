@@ -331,7 +331,6 @@ footer{
             cursor: not-allowed;
         }
         .rating-test-button:disabled:hover { transform: none; }
-        /* Page background (Bootstrap was overriding the stylesheet) */
 body { background-color: #f6ebdd; }
 
 /* Rating pop-up window */
