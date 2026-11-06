@@ -256,6 +256,10 @@ footer{
     color: #d9a77a;
 }
 
+#site-footer{
+    margin-top: auto;
+}
+
 /* ---------- Small screens (phones) ---------- */
 @media (max-width: 600px){
     nav{
