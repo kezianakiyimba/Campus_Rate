@@ -5,6 +5,7 @@ document.getElementById("site-nav").innerHTML= `
                 <a href="campus_rate_landingpage.html">Home</a>
                 <a href="ratings.html">Ratings</a>
                 <a href="promotions.html">Promotions</a>
+                <a href="about.html">About Us</a>
             </div>
     </nav>
  `;
