@@ -11,6 +11,6 @@ document.getElementById("site-nav").innerHTML= `
  `;
 document.getElementById("site-footer").innerHTML=`
 <footer>
-    CampusRate &middot; Light and the Salt project
+    CampusRate &middot; Group 5 project
 </footer>
 `;
