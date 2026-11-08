@@ -273,7 +273,8 @@ promotions.forEach(function (promo, index) {
     col.innerHTML =
         '<button type="button" class="promo-thumb' + (index === 0 ? ' active' : '') +
         '" data-index="' + index + '" aria-label="View details: ' + promo.title + '">' +
-            '<img src="' + promo.image + '" alt="" onerror="' + ON_ERROR + '">' +
+        '" data-bs-toggle= "modal"data-bs-taget="#promoModal" aria-label= "View details":'+ promo.title + '">'+  
+          '<img src="' + promo.image + '" alt="" onerror="' + ON_ERROR + '">' +
             '<div class="thumb-text">' +
                 '<div class="thumb-canteen">' + promo.canteen + '</div>' +
                 '<div class="thumb-title">' + promo.title + '</div>' +
