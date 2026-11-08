@@ -301,6 +301,8 @@ promoModal.addEventListener("show.bs.modal", function(event) {
 
     const promo = promotions[index];
 
+    if (!promo) return;
+
     document.getElementById("promoModalImg").src = promo.image;
 
     document.getElementById("promoModalTitle").textContent = promo.title;
