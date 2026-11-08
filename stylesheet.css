@@ -81,7 +81,7 @@ nav{
 
 /* ---------- Hero slideshow ---------- */
 /* Every slide is a photo that covers the whole hero, and starts invisible */
-.slide{
+.hero .slide{
     position: absolute;
     top: 0;
     left: 0;
