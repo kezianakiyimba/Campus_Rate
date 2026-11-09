@@ -316,6 +316,7 @@ footer{
             white-space: nowrap;
             color: #f1c40f;
         }
+        /* styling for the boostrap modal */
         .rating-test-button {
            background-color: #c0392b;
            color: white;
