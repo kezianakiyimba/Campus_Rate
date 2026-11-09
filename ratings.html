@@ -74,8 +74,10 @@
                                class="form-control"
                                id="registrationNumber"
                                name="registrationNumber"
-                               placeholder="Enter registration number"
-                               pattern="[A-Za-z0-9]+"
+                               placeholder="e.g. S26B23/041"
+                               pattern="[A-Za-z0-9]{6}/[0-9]{3}"
+                               minlength="10"
+                               maxlength="10"
                                title="Registration number should contain letters and numbers only."
     required
 
