@@ -114,16 +114,6 @@
     <div id="promoCarousel" class="carousel slide carousel-fade">
         <div class="carousel-inner" id="carouselSlides"></div>
 
-        <button class="carousel-control-prev" type="button"
-                data-bs-target="#promoCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous promotion</span>
-        </button>
-        <button class="carousel-control-next" type="button"
-                data-bs-target="#promoCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next promotion</span>
-        </button>
     </div>
 </section>
 
@@ -275,7 +265,8 @@ promotions.forEach(function (promo, index) {
     col.className = "col-6 col-md-4 col-lg-3";
     col.innerHTML =
         '<button type="button" class="promo-thumb' + (index === 0 ? ' active' : '') +
-        '" data-index="' + index + '" aria-label="View details: ' + promo.title + '">' + 
+        '" data-index="' + index + '" data-bs-toggle="modal" data-bs-target="#promoModal"' +
+        ' data-promo-index="' + index + '" aria-label="View details: ' + promo.title + '">' +
         
           '<img src="' + promo.image + '" alt="" onerror="' + ON_ERROR + '">' +
             '<div class="thumb-text">' +
