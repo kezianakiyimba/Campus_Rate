@@ -75,6 +75,10 @@
                                id="registrationNumber"
                                name="registrationNumber"
                                placeholder="Enter registration number"
+                               pattern="[A-Za-z0-9]+"
+                               title="Registration number should contain letters and numbers only."
+    required
+
                                required>
                     </div>
 
@@ -88,7 +92,9 @@
                                class="form-control"
                                id="receiptNumber"
                                name="receiptNumber"
+                               pattern="[0-9]+"
                                placeholder="Enter receipt number"
+                               title="Receipt number should contain numbers only."
                                required>
                     </div>
 
