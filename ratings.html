@@ -372,6 +372,10 @@ submitRatingButton.addEventListener("click", function () {
 
   // Prevent another submission
   submitRatingButton.disabled = true;
+
+  setTimeout(function () {
+    bootstrap.Modal.getOrCreateInstance(ratingModal).hide();
+}, 1200);
 });
 
 
